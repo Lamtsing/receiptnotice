@@ -51,12 +51,6 @@ public class MD5 extends Encrypter {
         return md5str;
     }
 
-    public String getSignMd5(String type, String price, String key) {
-        String md5str = getMd5String(getMd5String(type + price) + key);
-//        LogUtil.debugLog("md5 string: type is" + type + " price is " + price + "   md5str:" + md5str);
-        return md5str;
-    }
-
     public String getSignMd5WithSecretkey(String type, String price, String secretkey) {
         String md5str = getMd5String(getMd5String(type + price) + secretkey);
         return md5str;

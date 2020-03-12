@@ -44,20 +44,20 @@ public class PostMapFilter {
             String encrypt_type = preference.getEncryptMethod();
             if (encrypt_type != null) {
                 String key = preference.getPasswd();
-                sign = new MD5().getSignMd5(postmap.get("type"), postmap.get("money"),key);
-                postmap.put("sign", sign);
-//                EncryptFactory encryptfactory = new EncryptFactory(key);
+//                sign = new MD5().getSignMd5(postmap.get("type"), postmap.get("money"),key);
+//                postmap.put("sign", sign);
+                EncryptFactory encryptfactory = new EncryptFactory(key);
 //                LogUtil.debugLog("加密方法" + encrypt_type);
 //                LogUtil.debugLog("加密秘钥" + key);
-//                Encrypter encrypter = encryptfactory.getEncrypter(encrypt_type);
-//                if (encrypter != null && key != null) {
+                Encrypter encrypter = encryptfactory.getEncrypter(encrypt_type);
+                if (encrypter != null && key != null) {
 //
-//                    postmap = encrypter.transferMapValue(postmap);
+                    postmap = encrypter.transferMapValue(postmap);
 //                    postmap.put("url", this.posturl);
 //                    if (preference.isSkipEncryptDeviceid()) {
 //                        postmap.put("deviceid", getDeviceid());
 //                    }
-//                }
+                }
 
             }
         } else
