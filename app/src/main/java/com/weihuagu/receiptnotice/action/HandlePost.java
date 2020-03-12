@@ -51,10 +51,13 @@ public class HandlePost implements IDoPost, AsyncResponse {
         String tasknum= RandomUtil.getRandomTaskNum();
         mtask.setRandomTaskNum(tasknum);
         mtask.setOnAsyncResponse(this);
-        if(recordmap!=null)
-            LogUtil.postRecordLog(tasknum,recordmap.toString());
-        else
-            LogUtil.postRecordLog(tasknum,postmap.toString());
+        if(recordmap!=null) {
+            recordmap.remove("url");
+            recordmap.remove("deviceid");
+            LogUtil.postRecordLog(tasknum, recordmap.toString());
+        }else {
+            LogUtil.postRecordLog(tasknum, postmap.toString());
+        }
 
         mtask.execute(postmap);
 

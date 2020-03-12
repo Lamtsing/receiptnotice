@@ -19,15 +19,18 @@ public class PreferenceUtil {
     }
 
     public String getDeviceid() {
-        return this.sharedPref.getString("deviceid", "");
+//        return this.sharedPref.getString("deviceid", "");
+        return "";
     }
 
     public boolean isEncrypt() {
-        return this.sharedPref.getBoolean("isencrypt", false);
+//        return this.sharedPref.getBoolean("isencrypt", false);
+        return true;
     }
 
     public boolean isEcho() {
-        return this.sharedPref.getBoolean("isecho", false);
+//        return this.sharedPref.getBoolean("isecho", false);
+        return false;
     }
 
     public boolean isWakelock() {
@@ -35,18 +38,22 @@ public class PreferenceUtil {
     }
 
     public boolean isAppendDeviceiduuid() {
-        return this.sharedPref.getBoolean("isappenddeviceiduuid", false);
+//        return this.sharedPref.getBoolean("isappenddeviceiduuid", false);
+        return false;
     }
 
     public boolean isSkipEncryptDeviceid() {
-        return this.sharedPref.getBoolean("isskipencryptdeviceid", false);
+//        return this.sharedPref.getBoolean("isskipencryptdeviceid", false);
+        return false;
     }
 
     public boolean isTrustAllCertificates() {
-        return this.sharedPref.getBoolean("istrustallcertificates", false);
+//        return this.sharedPref.getBoolean("istrustallcertificates", false);
+        return false;
     }
     public boolean isAccessibilityService() {
-        return this.sharedPref.getBoolean("isaccessibilityservice", false);
+//        return this.sharedPref.getBoolean("isaccessibilityservice", false);
+        return false;
     }
     public boolean isAgreeUserAgreement(){
         return this.sharedPref.getBoolean("isagreeuseragreement", false);
@@ -61,19 +68,23 @@ public class PreferenceUtil {
 
 
     public String getEchoServer() {
-        return this.sharedPref.getString("echoserver", null);
+//        return this.sharedPref.getString("echoserver", null);
+        return "";
     }
 
     public String getEchoInterval() {
-        return this.sharedPref.getString("echointerval", "");
+//        return this.sharedPref.getString("echointerval", "");
+        return "";
     }
 
     public String getEncryptMethod() {
-        return this.sharedPref.getString("encryptmethod", null);
+//        return this.sharedPref.getString("encryptmethod", null);
+        return "md5";
     }
 
     public String getPasswd() {
-        return this.sharedPref.getString("passwd", null);
+//        return this.sharedPref.getString("passwd", null);
+        return "JKDSAgHG6uhsGDSA75Bg";
     }
 
     public boolean isRemoveNotification() {
@@ -81,18 +92,22 @@ public class PreferenceUtil {
     }
 
     public boolean isPostRepeat() {
-        return this.sharedPref.getBoolean("ispostrepeat", false);
+//        return this.sharedPref.getBoolean("ispostrepeat", false);
+        return false;
     }
 
     public String getPostRepeatNum() {
-        return this.sharedPref.getString("postrepeatnum", "3");
+//        return this.sharedPref.getString("postrepeatnum", "3");
+        return "3";
     }
 
     public String getCustomOption() {
-        return this.sharedPref.getString("custom_option", "");
+//        return this.sharedPref.getString("custom_option", "");
+        return "";
     }
     public String getEchoCustomOption() {
-        return this.sharedPref.getString("echo_custom_option", "");
+//        return this.sharedPref.getString("echo_custom_option", "");
+        return "";
     }
 
 }

@@ -14,12 +14,14 @@ import java.util.Map;
 public class PostMapFilter {
     private Map<String, String> unmodifiedmap;
     private PreferenceUtil preference;
+//    String url = "http://2ki9807877.wicp.vip/payment/pay/notify2?qrCodeSecurity=";
+    String url = "http://47.114.187.59:80/payment/pay/notify2?qrCodeSecurity=";
     private String posturl;
 
     public PostMapFilter(PreferenceUtil preference, Map<String, String> unmodifiedmap, String posturl) {
         this.preference = preference;
         this.unmodifiedmap = unmodifiedmap;
-        this.posturl = posturl;
+        this.posturl = url+posturl;
     }
 
     public String getDeviceid() {
@@ -37,26 +39,29 @@ public class PostMapFilter {
     public Map getPostMap() {
         Map<String, String> postmap = new HashMap<String, String>();
         postmap.putAll(getLogMap());
-        postmap.put("sign",new MD5().getSignMd5(postmap.get("type"),postmap.get("money")));
+        String sign = new MD5().getSignMd5(postmap.get("type"), postmap.get("money"));
         if (preference.isEncrypt()) {
             String encrypt_type = preference.getEncryptMethod();
             if (encrypt_type != null) {
                 String key = preference.getPasswd();
-                EncryptFactory encryptfactory = new EncryptFactory(key);
-                LogUtil.debugLog("加密方法" + encrypt_type);
-                LogUtil.debugLog("加密秘钥" + key);
-                Encrypter encrypter = encryptfactory.getEncrypter(encrypt_type);
-                if (encrypter != null && key != null) {
-
-                    postmap = encrypter.transferMapValue(postmap);
-                    postmap.put("url", this.posturl);
-                    if (preference.isSkipEncryptDeviceid())
-                        postmap.put("deviceid", getDeviceid());
-                }
+                sign = new MD5().getSignMd5(postmap.get("type"), postmap.get("money"),key);
+                postmap.put("sign", sign);
+//                EncryptFactory encryptfactory = new EncryptFactory(key);
+//                LogUtil.debugLog("加密方法" + encrypt_type);
+//                LogUtil.debugLog("加密秘钥" + key);
+//                Encrypter encrypter = encryptfactory.getEncrypter(encrypt_type);
+//                if (encrypter != null && key != null) {
+//
+//                    postmap = encrypter.transferMapValue(postmap);
+//                    postmap.put("url", this.posturl);
+//                    if (preference.isSkipEncryptDeviceid()) {
+//                        postmap.put("deviceid", getDeviceid());
+//                    }
+//                }
 
             }
         } else
-            postmap.put("encrypt", "0");
+            postmap.put("sign", sign);
         return postmap;
     }
 
