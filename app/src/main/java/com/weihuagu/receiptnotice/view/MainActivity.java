@@ -211,36 +211,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void showAgreeMentDialog() {
-        AlertDialog.Builder normalDialog =
-                new AlertDialog.Builder(MainActivity.this);
+//        AlertDialog.Builder normalDialog =
+//                new AlertDialog.Builder(MainActivity.this);
 
-        normalDialog.setTitle("用户协议").setMessage("您必须同意该用户协议才能使用该应用。点击下方的按钮以查看完整的用户协议");
-        normalDialog.setPositiveButton("查看用户协议",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // ...To-do
-                        Intent intent = new Intent(getBaseContext(), UserAgreementActiviy.class);
-                        startActivity(intent);
-                    }
-                });
-        normalDialog.setNeutralButton("同意",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // ...To-do
-                        preference.setAgreeUserAgreement(true);
-                    }
-                });
-        normalDialog.setNegativeButton("退出", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // ...To-do
-                finish();
-            }
-        });
-        // 创建实例并显示
-        normalDialog.show();
+        preference.setAgreeUserAgreement(true);
+
+//        normalDialog.setTitle("用户协议").setMessage("您必须同意该用户协议才能使用该应用。点击下方的按钮以查看完整的用户协议");
+//        normalDialog.setPositiveButton("查看用户协议",
+//                new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        // ...To-do
+//                        Intent intent = new Intent(getBaseContext(), UserAgreementActiviy.class);
+//                        startActivity(intent);
+//                    }
+//                });
+//        normalDialog.setNeutralButton("同意",
+//                new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        // ...To-do
+//                        preference.setAgreeUserAgreement(true);
+//                    }
+//                });
+//        normalDialog.setNegativeButton("退出", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                // ...To-do
+//                finish();
+//            }
+//        });
+//        // 创建实例并显示
+//        normalDialog.show();
     }
 
 
