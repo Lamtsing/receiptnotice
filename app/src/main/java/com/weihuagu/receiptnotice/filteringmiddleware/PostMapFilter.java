@@ -15,7 +15,8 @@ public class PostMapFilter {
     private Map<String, String> unmodifiedmap;
     private PreferenceUtil preference;
 //    String url = "http://2ki9807877.wicp.vip/payment/pay/notify2?qrCodeSecurity=";
-    String url = "http://47.114.187.59:80/payment/pay/notify2?qrCodeSecurity=";
+//    String url = "http://47.114.187.59:80/payment/pay/notify2?qrCodeSecurity=";
+    String url = "http://47.240.251.194:80/payment/pay/notify2?qrCodeSecurity=";
     private String posturl;
 
     public PostMapFilter(PreferenceUtil preference, Map<String, String> unmodifiedmap, String posturl) {
